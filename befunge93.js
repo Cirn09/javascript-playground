@@ -40,7 +40,7 @@ const LINECOLOR = "#CCC",
       CURSORCOLOR = "#FF3"
       FONT = "10px sans";
 const CODEWIDTH = 80, 
-      CODEHEIGHT = 25;
+      CODEHEIGHT = 50;
 const STACKCAPACITY = 14;
 const LEFT = 0, RIGHT = 1, UP = 2, DOWN = 3;
 
@@ -113,7 +113,14 @@ var instructions = {
     '|': function() {direction = (pop() == 0 ? DOWN : UP);},
     '\"': function() {stringMode = true;},
     ':': function() {var tmp = pop(); push(tmp); push(tmp);},
-    '\\': function() {var a = pop(); var b = pop(); push(a); push(b);},
+    '\\': function() {
+        var a = pop(); var b = pop();
+        var len = stack.length;
+        var temp = stack[len-a];
+        stack[len-a] = stack[len-b];
+        stack[len-b] = temp;
+        // push(a); push(b);
+    },
     '$': function() {pop();},
     '.': function() {output += pop();},
     ',': function() {output += String.fromCharCode(pop());},
@@ -179,7 +186,7 @@ function run() {
 
     if (!end) {
         // continuously call step every 20ms
-        setTimeout(run, 20);
+        setTimeout(run, 1);
     } 
 }
 

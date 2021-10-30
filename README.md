@@ -1,4 +1,15 @@
-Qiao's Javascript Playground 
+给[Just Be Fun](https://github.com/USTC-Hackergame/hackergame2021-writeups/tree/master/official/JUST%20BE%20FUN)用的2D可视化IDE
+============================
+
+虽然只有2D，但也足够用了
+
+---
+
+fork 自 https://github.com/qiao/javascript-playground
+
+以下原project readme
+
+Qiao's Javascript Playground  
 ============================
 
 #### A collection of my toy codes ####
